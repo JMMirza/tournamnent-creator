@@ -10,6 +10,7 @@
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="<?php echo e(URL::asset('assets/images/favicon.ico')); ?>">
     <?php echo $__env->make('layouts.head-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->yieldPushContent('header_scripts'); ?>
 </head>
 
 <?php $__env->startSection('body'); ?>
@@ -31,6 +32,7 @@
         <!-- end main content-->
     </div>
     <?php echo $__env->make('layouts.vendor-scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->yieldPushContent('footer_scripts'); ?>
 </body>
 
 </html>

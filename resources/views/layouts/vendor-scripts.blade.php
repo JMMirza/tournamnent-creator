@@ -16,9 +16,12 @@
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/fixedcolumns/4.1.0/js/dataTables.fixedColumns.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>

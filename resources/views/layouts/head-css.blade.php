@@ -12,9 +12,11 @@
 
 <!-- App favicon -->
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
-<link href="{{ asset('https://cdn.datatables.net/fixedcolumns/4.1.0/css/fixedColumns.dataTables.min.css') }}"
-    rel="stylesheet" type="text/css" />
+
 <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.css" />
+
+
 <link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
 <link href="https://printjs-4de6.kxcdn.com/print.min.css" rel="stylesheet" type="text/css" />

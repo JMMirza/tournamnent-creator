@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Status;
 use Illuminate\Http\Request;
 
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use DataTables;
+
 class StatusController extends Controller
 {
     /**
