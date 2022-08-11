@@ -12,9 +12,20 @@ class StatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = Status::get();            
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                        return view('settings.statuses.actions', ['row'=>$row]);
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+
+        return view('settings.statuses.statuses');
     }
 
     /**
@@ -35,7 +46,10 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([ 'name' => 'required|unique:statuses,name']);
+        Status::create($request->all());
+        return redirect()->route('statuses.index')
+            ->with('success', 'Status created successfully.');
     }
 
     /**
@@ -46,7 +60,7 @@ class StatusController extends Controller
      */
     public function show(Status $status)
     {
-        //
+
     }
 
     /**
@@ -57,7 +71,7 @@ class StatusController extends Controller
      */
     public function edit(Status $status)
     {
-        //
+        return view('settings.statuses.statuses', ['status' => $status]);
     }
 
     /**
@@ -69,7 +83,11 @@ class StatusController extends Controller
      */
     public function update(Request $request, Status $status)
     {
-        //
+        $request->validate(['name' => 'required|unique:statuses,name,' . $status->id]);
+        $status->update($request->all());
+
+        return redirect()->route('statuses.index')
+            ->with('success', 'Status updated successfully.');
     }
 
     /**
@@ -80,6 +98,10 @@ class StatusController extends Controller
      */
     public function destroy(Status $status)
     {
-        //
+        try {
+            return $status->delete();
+        } catch (QueryException $e) {
+            print_r($e->errorInfo);
+        }
     }
 }

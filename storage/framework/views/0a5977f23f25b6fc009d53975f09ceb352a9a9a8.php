@@ -5,19 +5,19 @@
         <!-- Dark Logo-->
         <a href="index" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="<?php echo e(URL::asset('assets/images/logo-sm.png')); ?>" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('assets/images/logo-dark.png') }}" alt="" height="17">
+                <img src="<?php echo e(URL::asset('assets/images/logo-dark.png')); ?>" alt="" height="17">
             </span>
         </a>
         <!-- Light Logo-->
         <a href="index" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="<?php echo e(URL::asset('assets/images/logo-sm.png')); ?>" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="17">
+                <img src="<?php echo e(URL::asset('assets/images/logo-light.png')); ?>" alt="" height="17">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -32,7 +32,7 @@
             <div id="two-column-menu">
             </div>
             <ul class="navbar-nav" id="navbar-nav">
-                <li class="menu-title"><span>@lang('translation.menu')</span></li>
+                <li class="menu-title"><span><?php echo app('translator')->get('translation.menu'); ?></span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMultilevel">
                         <i class="ri-settings-2-fill"></i>
@@ -42,19 +42,19 @@
                         <ul class="nav nav-sm flex-column">
                             
                             <li class="nav-item">
-                                <a href="{{route('statuses.index')}}" class="nav-link" data-key="t-dashboards">
+                                <a href="<?php echo e(route('statuses.index')); ?>" class="nav-link" data-key="t-dashboards">
                                     Status
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{route('gamer-tags.index')}}" class="nav-link" data-key="t-dashboards">
+                                <a href="<?php echo e(route('gamer-tags.index')); ?>" class="nav-link" data-key="t-dashboards">
                                     Gamer Tags
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{route('prizes.index')}}" class="nav-link" data-key="t-dashboards">
+                                <a href="<?php echo e(route('prizes.index')); ?>" class="nav-link" data-key="t-dashboards">
                                     Tournament Prizes
                                 </a>
                             </li>
@@ -72,3 +72,4 @@
 <!-- Left Sidebar End -->
 <!-- Vertical Overlay-->
 <div class="vertical-overlay"></div>
+<?php /**PATH C:\xampp\htdocs\tournament-setup\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>

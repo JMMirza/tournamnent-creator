@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\GamerTagController;
+use App\Http\Controllers\TournamentPrizeController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +25,10 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
-//Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
+
+
+Route::group(['middleware' => ['auth','verified']], function () {
+    Route::resources(['statuses' => StatusController::class]);
+    Route::resources(['gamer-tags' => GamerTagController::class]);
+    Route::resources(['prizes' => TournamentPrizeController::class]);
+});
