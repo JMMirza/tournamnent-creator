@@ -33,6 +33,36 @@
             </div>
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span><?php echo app('translator')->get('translation.menu'); ?></span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarMultilevel" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMultilevel">
+                        <i class="ri-settings-2-fill"></i>
+                        <span data-key="t-multi-level">Setup</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarMultilevel">
+                        <ul class="nav nav-sm flex-column">
+                            
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('statuses.index')); ?>" class="nav-link" data-key="t-dashboards">
+                                    Status
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('gamer-tags.index')); ?>" class="nav-link" data-key="t-dashboards">
+                                    Gamer Tags
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="<?php echo e(route('prizes.index')); ?>" class="nav-link" data-key="t-dashboards">
+                                    Tournament Prizes
+                                </a>
+                            </li>
+
+                            
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
