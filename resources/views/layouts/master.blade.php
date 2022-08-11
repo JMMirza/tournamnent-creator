@@ -10,6 +10,7 @@
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
     @include('layouts.head-css')
+    @stack('header_scripts')
 </head>
 
 @section('body')
@@ -31,6 +32,7 @@
         <!-- end main content-->
     </div>
     @include('layouts.vendor-scripts')
+    @stack('footer_scripts')
 </body>
 
 </html>
