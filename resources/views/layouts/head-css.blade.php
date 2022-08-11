@@ -14,8 +14,11 @@
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
 <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.css" />
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.css" />
 
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/exacti/floating-labels@latest/floating-labels.min.css" media="screen">
 
 <link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 
