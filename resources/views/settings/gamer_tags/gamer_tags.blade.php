@@ -3,24 +3,26 @@
     @include('components.flash_message')
 
     <div class="row">
-        @if (isset($status))
-            @include('settings.statuses.edit_status')
+        @if (isset($gamerTag))
+            @include('settings.gamer_tags.edit')
         @else
-            @include('settings.statuses.add_status')
+            @include('settings.gamer_tags.add_new')
         @endif
 
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Status List</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">Gamer Tag List</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
-                    <table id="status-data-table" class="table table-bordered table-striped align-middle table-nowrap mb-0"
+                    <table id="gamer-tag-data-table" class="table table-bordered table-striped align-middle table-nowrap mb-0"
                         style="width:100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Abbreviation</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -32,6 +34,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Abbreviation</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -51,7 +55,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            $('#status-data-table').DataTable({
+            $('#gamer-tag-data-table').DataTable({
                 retrieve: true,
                 processing: true,
                 language: {
@@ -62,7 +66,7 @@
                 bLengthChange: false,
                 pageLength: 10,
                 scrollX: true,
-                ajax: "{{ route('statuses.index') }}",
+                ajax: "{{ route('gamer-tags.index') }}",
                 columns: [{
                         data: 'id',
                         name: 'id',
@@ -73,7 +77,16 @@
                         name: 'name',
                         width: "25%"
                     },
-
+                    {
+                        data: 'abbreviation',
+                        name: 'abbreviation',
+                        width: "25%"
+                    },
+                    {
+                        data: 'status',
+                        name: 'status',
+                        width: "25%"
+                    },
                     {
                         data: 'created_at',
                         name: 'created_at',

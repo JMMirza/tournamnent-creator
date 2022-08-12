@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\GamerTagController;
+use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\TournamentPrizeController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +26,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('roo
 
 
 
-Route::group(['middleware' => ['auth','verified']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resources(['statuses' => StatusController::class]);
     Route::resources(['gamer-tags' => GamerTagController::class]);
     Route::resources(['prizes' => TournamentPrizeController::class]);
+    Route::resources(['tournaments' => TournamentController::class]);
 });
