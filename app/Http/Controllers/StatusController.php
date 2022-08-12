@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Status;
 use Illuminate\Http\Request;
-
-
-use Illuminate\Support\Facades\File;
 use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use DataTables;
 
 class StatusController extends Controller
@@ -22,14 +17,14 @@ class StatusController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Status::get();            
+            $data = Status::get();
             return Datatables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', function($row){
-                        return view('settings.statuses.actions', ['row'=>$row]);
-                    })
-                    ->rawColumns(['action'])
-                    ->make(true);
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    return view('settings.statuses.actions', ['row' => $row]);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
         }
 
         return view('settings.statuses.statuses');
@@ -53,7 +48,7 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([ 'name' => 'required|unique:statuses,name']);
+        $request->validate(['name' => 'required|unique:statuses,name']);
         Status::create($request->all());
         return redirect()->route('statuses.index')
             ->with('success', 'Status created successfully.');
@@ -67,7 +62,6 @@ class StatusController extends Controller
      */
     public function show(Status $status)
     {
-
     }
 
     /**

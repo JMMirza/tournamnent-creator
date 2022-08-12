@@ -113,7 +113,7 @@ class TournamentController extends Controller
         }
     }
 
-    private function validations($request, $update = null)
+    private function validations($request)
     {
 
         $validationArr = [

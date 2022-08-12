@@ -41,25 +41,36 @@
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarMultilevel">
                         <ul class="nav nav-sm flex-column">
-
                             <li class="nav-item">
-                                <a href="{{ route('statuses.index') }}" class="nav-link" data-key="t-dashboards">
+                                <a href="{{ route('statuses.index') }}"
+                                    class="nav-link {{ Request::is('statuses') || Request::is('statuses/*') ? 'active' : '' }}"
+                                    data-key="t-dashboards">
                                     Status
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('gamer-tags.index') }}" class="nav-link" data-key="t-dashboards">
+                                <a href="{{ route('gamer-tags.index') }}"
+                                    class="nav-link {{ Request::is('gamer-tags') || Request::is('gamer-tags/*') ? 'active' : '' }}"
+                                    data-key="t-dashboards">
                                     Gamer Tags
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('tournaments.index') }}" class="nav-link" data-key="t-dashboards">
+                                <a href="{{ route('tournaments.index') }}"
+                                    class="nav-link {{ Request::is('tournaments') || Request::is('tournaments/*') ? 'active' : '' }}"
+                                    data-key="t-dashboards">
                                     Tournaments
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="{{ route('teams.index') }}"
+                                    class="nav-link {{ Request::is('teams') || Request::is('teams/*') ? 'active' : '' }}"
+                                    data-key="t-dashboards">
+                                    Teams
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
